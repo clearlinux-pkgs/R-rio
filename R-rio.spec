@@ -4,28 +4,34 @@
 #
 Name     : R-rio
 Version  : 0.5.16
-Release  : 18
+Release  : 19
 URL      : https://cran.r-project.org/src/contrib/rio_0.5.16.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/rio_0.5.16.tar.gz
 Summary  : A Swiss-Army Knife for Data I/O
 Group    : Development/Tools
 License  : GPL-2.0
-Requires: R-csvy
-Requires: R-curl
-Requires: R-data.table
-Requires: R-feather
-Requires: R-haven
-Requires: R-openxlsx
-Requires: R-readxl
-Requires: R-tibble
+Requires: R-cellranger
+Requires: R-forcats
+Requires: R-fst
+Requires: R-jsonlite
+Requires: R-readODS
+Requires: R-rmatio
+Requires: R-zip
+BuildRequires : R-cellranger
 BuildRequires : R-csvy
 BuildRequires : R-curl
 BuildRequires : R-data.table
 BuildRequires : R-feather
+BuildRequires : R-forcats
+BuildRequires : R-fst
 BuildRequires : R-haven
+BuildRequires : R-jsonlite
 BuildRequires : R-openxlsx
+BuildRequires : R-readODS
 BuildRequires : R-readxl
+BuildRequires : R-rmatio
 BuildRequires : R-tibble
+BuildRequires : R-zip
 BuildRequires : buildreq-R
 
 %description
@@ -43,10 +49,10 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1543400743
+export SOURCE_DATE_EPOCH=1556495524
 
 %install
-export SOURCE_DATE_EPOCH=1543400743
+export SOURCE_DATE_EPOCH=1556495524
 rm -rf %{buildroot}
 export LANG=C
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
@@ -82,8 +88,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export _R_CHECK_FORCE_SUGGESTS_=false
-R CMD check --no-manual --no-examples --no-codoc -l %{buildroot}/usr/lib64/R/library rio|| : 
-cp ~/.stash/* %{buildroot}/usr/lib64/R/library/*/libs/ || :
+R CMD check --no-manual --no-examples --no-codoc rio || :
 
 
 %files
@@ -120,3 +125,47 @@ cp ~/.stash/* %{buildroot}/usr/lib64/R/library/*/libs/ || :
 /usr/lib64/R/library/rio/help/rio.rdx
 /usr/lib64/R/library/rio/html/00Index.html
 /usr/lib64/R/library/rio/html/R.css
+/usr/lib64/R/library/rio/tests/test-all.R
+/usr/lib64/R/library/rio/tests/testthat/test_characterize.R
+/usr/lib64/R/library/rio/tests/testthat/test_compress.R
+/usr/lib64/R/library/rio/tests/testthat/test_convert.R
+/usr/lib64/R/library/rio/tests/testthat/test_errors.R
+/usr/lib64/R/library/rio/tests/testthat/test_extensions.R
+/usr/lib64/R/library/rio/tests/testthat/test_format_R.R
+/usr/lib64/R/library/rio/tests/testthat/test_format_arff.R
+/usr/lib64/R/library/rio/tests/testthat/test_format_csv.R
+/usr/lib64/R/library/rio/tests/testthat/test_format_csv_gz.R
+/usr/lib64/R/library/rio/tests/testthat/test_format_csvy.R
+/usr/lib64/R/library/rio/tests/testthat/test_format_dbf.R
+/usr/lib64/R/library/rio/tests/testthat/test_format_dif.R
+/usr/lib64/R/library/rio/tests/testthat/test_format_dta.R
+/usr/lib64/R/library/rio/tests/testthat/test_format_eviews.R
+/usr/lib64/R/library/rio/tests/testthat/test_format_external_packages.R
+/usr/lib64/R/library/rio/tests/testthat/test_format_feather.R
+/usr/lib64/R/library/rio/tests/testthat/test_format_fortran.R
+/usr/lib64/R/library/rio/tests/testthat/test_format_fst.R
+/usr/lib64/R/library/rio/tests/testthat/test_format_fwf.R
+/usr/lib64/R/library/rio/tests/testthat/test_format_html.R
+/usr/lib64/R/library/rio/tests/testthat/test_format_json.R
+/usr/lib64/R/library/rio/tests/testthat/test_format_matlab.R
+/usr/lib64/R/library/rio/tests/testthat/test_format_mtp.R
+/usr/lib64/R/library/rio/tests/testthat/test_format_ods.R
+/usr/lib64/R/library/rio/tests/testthat/test_format_psv.R
+/usr/lib64/R/library/rio/tests/testthat/test_format_rdata.R
+/usr/lib64/R/library/rio/tests/testthat/test_format_rds.R
+/usr/lib64/R/library/rio/tests/testthat/test_format_rec.R
+/usr/lib64/R/library/rio/tests/testthat/test_format_sas.R
+/usr/lib64/R/library/rio/tests/testthat/test_format_sav.R
+/usr/lib64/R/library/rio/tests/testthat/test_format_syd.R
+/usr/lib64/R/library/rio/tests/testthat/test_format_tsv.R
+/usr/lib64/R/library/rio/tests/testthat/test_format_xls.R
+/usr/lib64/R/library/rio/tests/testthat/test_format_xml.R
+/usr/lib64/R/library/rio/tests/testthat/test_format_yml.R
+/usr/lib64/R/library/rio/tests/testthat/test_gather_attrs.R
+/usr/lib64/R/library/rio/tests/testthat/test_guess.R
+/usr/lib64/R/library/rio/tests/testthat/test_identical.R
+/usr/lib64/R/library/rio/tests/testthat/test_import_list.R
+/usr/lib64/R/library/rio/tests/testthat/test_install_formats.R
+/usr/lib64/R/library/rio/tests/testthat/test_matrix.R
+/usr/lib64/R/library/rio/tests/testthat/test_remote.R
+/usr/lib64/R/library/rio/tests/testthat/test_set_class.R

@@ -1,2 +1,11 @@
 # This file contains recursive sources that require this package
+R-AER
+R-RcmdrMisc
+R-VIM
+R-afex
 R-car
+R-drc
+R-dynlm
+R-mvoutlier
+R-robCompositions
+R-systemfit

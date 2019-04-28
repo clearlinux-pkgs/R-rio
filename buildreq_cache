@@ -1,9 +1,16 @@
 0.5.16
+R-cellranger
 R-csvy
 R-curl
 R-data.table
 R-feather
+R-forcats
+R-fst
 R-haven
+R-jsonlite
 R-openxlsx
+R-readODS
 R-readxl
+R-rmatio
 R-tibble
+R-zip
