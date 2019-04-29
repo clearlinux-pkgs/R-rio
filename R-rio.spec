@@ -4,19 +4,12 @@
 #
 Name     : R-rio
 Version  : 0.5.16
-Release  : 19
+Release  : 20
 URL      : https://cran.r-project.org/src/contrib/rio_0.5.16.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/rio_0.5.16.tar.gz
 Summary  : A Swiss-Army Knife for Data I/O
 Group    : Development/Tools
 License  : GPL-2.0
-Requires: R-cellranger
-Requires: R-forcats
-Requires: R-fst
-Requires: R-jsonlite
-Requires: R-readODS
-Requires: R-rmatio
-Requires: R-zip
 BuildRequires : R-cellranger
 BuildRequires : R-csvy
 BuildRequires : R-curl
@@ -25,6 +18,7 @@ BuildRequires : R-feather
 BuildRequires : R-forcats
 BuildRequires : R-fst
 BuildRequires : R-haven
+BuildRequires : R-hexView
 BuildRequires : R-jsonlite
 BuildRequires : R-openxlsx
 BuildRequires : R-readODS
@@ -49,10 +43,10 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1556495524
+export SOURCE_DATE_EPOCH=1556498840
 
 %install
-export SOURCE_DATE_EPOCH=1556495524
+export SOURCE_DATE_EPOCH=1556498840
 rm -rf %{buildroot}
 export LANG=C
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
@@ -82,14 +76,6 @@ echo "CXXFLAGS = $CXXFLAGS -ftree-vectorize " >> ~/.R/Makevars
 R CMD INSTALL --preclean --install-tests --built-timestamp=${SOURCE_DATE_EPOCH} --build  -l %{buildroot}/usr/lib64/R/library rio
 cp ~/.stash/* %{buildroot}/usr/lib64/R/library/*/libs/ || :
 %{__rm} -rf %{buildroot}%{_datadir}/R/library/R.css
-%check
-export LANG=C
-export http_proxy=http://127.0.0.1:9/
-export https_proxy=http://127.0.0.1:9/
-export no_proxy=localhost,127.0.0.1,0.0.0.0
-export _R_CHECK_FORCE_SUGGESTS_=false
-R CMD check --no-manual --no-examples --no-codoc rio || :
-
 
 %files
 %defattr(-,root,root,-)

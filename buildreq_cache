@@ -7,6 +7,7 @@ R-feather
 R-forcats
 R-fst
 R-haven
+R-hexView
 R-jsonlite
 R-openxlsx
 R-readODS
