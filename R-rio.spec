@@ -4,28 +4,24 @@
 #
 Name     : R-rio
 Version  : 0.5.16
-Release  : 22
+Release  : 23
 URL      : https://cran.r-project.org/src/contrib/rio_0.5.16.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/rio_0.5.16.tar.gz
 Summary  : A Swiss-Army Knife for Data I/O
 Group    : Development/Tools
 License  : GPL-2.0
-BuildRequires : R-cellranger
-BuildRequires : R-csvy
+Requires: R-curl
+Requires: R-data.table
+Requires: R-haven
+Requires: R-openxlsx
+Requires: R-readxl
+Requires: R-tibble
 BuildRequires : R-curl
 BuildRequires : R-data.table
-BuildRequires : R-feather
-BuildRequires : R-forcats
-BuildRequires : R-fst
 BuildRequires : R-haven
-BuildRequires : R-hexView
-BuildRequires : R-jsonlite
 BuildRequires : R-openxlsx
-BuildRequires : R-readODS
 BuildRequires : R-readxl
-BuildRequires : R-rmatio
 BuildRequires : R-tibble
-BuildRequires : R-zip
 BuildRequires : buildreq-R
 
 %description
@@ -42,13 +38,13 @@ output: github_document
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
-export LANG=C
-export SOURCE_DATE_EPOCH=1556498840
+export LANG=C.UTF-8
+export SOURCE_DATE_EPOCH=1569381327
 
 %install
-export SOURCE_DATE_EPOCH=1556498840
+export SOURCE_DATE_EPOCH=1569381327
 rm -rf %{buildroot}
-export LANG=C
+export LANG=C.UTF-8
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
 export FCFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
 export FFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
