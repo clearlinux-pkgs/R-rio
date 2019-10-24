@@ -1,5 +1,2 @@
 # This file contains recursive sources that require this package
-R-alr3
 R-car
-R-dynlm
-R-systemfit
