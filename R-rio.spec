@@ -4,7 +4,7 @@
 #
 Name     : R-rio
 Version  : 0.5.26
-Release  : 35
+Release  : 36
 URL      : https://cran.r-project.org/src/contrib/rio_0.5.26.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/rio_0.5.26.tar.gz
 Summary  : A Swiss-Army Knife for Data I/O
