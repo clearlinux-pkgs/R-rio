@@ -4,7 +4,7 @@
 #
 Name     : R-rio
 Version  : 0.5.27
-Release  : 39
+Release  : 40
 URL      : https://cran.r-project.org/src/contrib/rio_0.5.27.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/rio_0.5.27.tar.gz
 Summary  : A Swiss-Army Knife for Data I/O
