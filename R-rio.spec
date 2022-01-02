@@ -4,7 +4,7 @@
 #
 Name     : R-rio
 Version  : 0.5.29
-Release  : 43
+Release  : 44
 URL      : https://cran.r-project.org/src/contrib/rio_0.5.29.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/rio_0.5.29.tar.gz
 Summary  : A Swiss-Army Knife for Data I/O
@@ -36,10 +36,10 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1637603962
+export SOURCE_DATE_EPOCH=1641096565
 
 %install
-export SOURCE_DATE_EPOCH=1637603962
+export SOURCE_DATE_EPOCH=1641096565
 rm -rf %{buildroot}
 export LANG=C.UTF-8
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
