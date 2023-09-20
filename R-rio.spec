@@ -4,25 +4,31 @@
 # Using build pattern: R
 #
 Name     : R-rio
-Version  : 0.5.30
-Release  : 53
-URL      : https://cran.r-project.org/src/contrib/rio_0.5.30.tar.gz
-Source0  : https://cran.r-project.org/src/contrib/rio_0.5.30.tar.gz
+Version  : 1.0.1
+Release  : 54
+URL      : https://cran.r-project.org/src/contrib/rio_1.0.1.tar.gz
+Source0  : https://cran.r-project.org/src/contrib/rio_1.0.1.tar.gz
 Summary  : A Swiss-Army Knife for Data I/O
 Group    : Development/Tools
 License  : GPL-2.0
+Requires: R-R.utils
 Requires: R-curl
 Requires: R-data.table
 Requires: R-haven
-Requires: R-openxlsx
+Requires: R-lifecycle
 Requires: R-readxl
+Requires: R-stringi
 Requires: R-tibble
+Requires: R-writexl
+BuildRequires : R-R.utils
 BuildRequires : R-curl
 BuildRequires : R-data.table
 BuildRequires : R-haven
-BuildRequires : R-openxlsx
+BuildRequires : R-lifecycle
 BuildRequires : R-readxl
+BuildRequires : R-stringi
 BuildRequires : R-tibble
+BuildRequires : R-writexl
 BuildRequires : buildreq-R
 # Suppress stripping binaries
 %define __strip /bin/true
@@ -42,10 +48,10 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1693412539
+export SOURCE_DATE_EPOCH=1695225989
 
 %install
-export SOURCE_DATE_EPOCH=1693412539
+export SOURCE_DATE_EPOCH=1695225989
 rm -rf %{buildroot}
 export LANG=C.UTF-8
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
@@ -94,7 +100,16 @@ cp ~/.stash/* %{buildroot}/usr/lib64/R/library/*/libs/ || :
 /usr/lib64/R/library/rio/R/rio
 /usr/lib64/R/library/rio/R/rio.rdb
 /usr/lib64/R/library/rio/R/rio.rdx
+/usr/lib64/R/library/rio/R/sysdata.rdb
+/usr/lib64/R/library/rio/R/sysdata.rdx
+/usr/lib64/R/library/rio/doc/extension.R
+/usr/lib64/R/library/rio/doc/extension.html
 /usr/lib64/R/library/rio/doc/index.html
+/usr/lib64/R/library/rio/doc/labelled.R
+/usr/lib64/R/library/rio/doc/labelled.html
+/usr/lib64/R/library/rio/doc/philosophy.html
+/usr/lib64/R/library/rio/doc/remap.R
+/usr/lib64/R/library/rio/doc/remap.html
 /usr/lib64/R/library/rio/doc/rio.R
 /usr/lib64/R/library/rio/doc/rio.html
 /usr/lib64/R/library/rio/help/AnIndex
@@ -108,7 +123,6 @@ cp ~/.stash/* %{buildroot}/usr/lib64/R/library/*/libs/ || :
 /usr/lib64/R/library/rio/html/R.css
 /usr/lib64/R/library/rio/tests/testdata/br-in-header.html
 /usr/lib64/R/library/rio/tests/testdata/br-in-td.html
-/usr/lib64/R/library/rio/tests/testdata/example-DESCRIPTION
 /usr/lib64/R/library/rio/tests/testdata/example.csvy
 /usr/lib64/R/library/rio/tests/testdata/iris.xls
 /usr/lib64/R/library/rio/tests/testdata/mtcars.ods
@@ -117,11 +131,13 @@ cp ~/.stash/* %{buildroot}/usr/lib64/R/library/*/libs/ || :
 /usr/lib64/R/library/rio/tests/testdata/two-tbody.html
 /usr/lib64/R/library/rio/tests/testdata/twotables.html
 /usr/lib64/R/library/rio/tests/testthat.R
-/usr/lib64/R/library/rio/tests/testthat/test_arg_reconcile.R
 /usr/lib64/R/library/rio/tests/testthat/test_characterize.R
+/usr/lib64/R/library/rio/tests/testthat/test_check_file.R
 /usr/lib64/R/library/rio/tests/testthat/test_compress.R
 /usr/lib64/R/library/rio/tests/testthat/test_convert.R
+/usr/lib64/R/library/rio/tests/testthat/test_create_outfiles.R
 /usr/lib64/R/library/rio/tests/testthat/test_errors.R
+/usr/lib64/R/library/rio/tests/testthat/test_export_corner_cases.R
 /usr/lib64/R/library/rio/tests/testthat/test_export_list.R
 /usr/lib64/R/library/rio/tests/testthat/test_extensions.R
 /usr/lib64/R/library/rio/tests/testthat/test_format_R.R
@@ -146,6 +162,7 @@ cp ~/.stash/* %{buildroot}/usr/lib64/R/library/*/libs/ || :
 /usr/lib64/R/library/rio/tests/testthat/test_format_parquet.R
 /usr/lib64/R/library/rio/tests/testthat/test_format_psv.R
 /usr/lib64/R/library/rio/tests/testthat/test_format_pzfx.R
+/usr/lib64/R/library/rio/tests/testthat/test_format_qs.R
 /usr/lib64/R/library/rio/tests/testthat/test_format_rdata.R
 /usr/lib64/R/library/rio/tests/testthat/test_format_rds.R
 /usr/lib64/R/library/rio/tests/testthat/test_format_rec.R
@@ -161,7 +178,7 @@ cp ~/.stash/* %{buildroot}/usr/lib64/R/library/*/libs/ || :
 /usr/lib64/R/library/rio/tests/testthat/test_identical.R
 /usr/lib64/R/library/rio/tests/testthat/test_import_list.R
 /usr/lib64/R/library/rio/tests/testthat/test_install_formats.R
-/usr/lib64/R/library/rio/tests/testthat/test_is_file_text.R
+/usr/lib64/R/library/rio/tests/testthat/test_mapping.R
 /usr/lib64/R/library/rio/tests/testthat/test_matrix.R
 /usr/lib64/R/library/rio/tests/testthat/test_remote.R
 /usr/lib64/R/library/rio/tests/testthat/test_set_class.R
