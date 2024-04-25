@@ -5,7 +5,7 @@
 #
 Name     : R-rio
 Version  : 1.0.1
-Release  : 55
+Release  : 56
 URL      : https://cran.r-project.org/src/contrib/rio_1.0.1.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/rio_1.0.1.tar.gz
 Summary  : A Swiss-Army Knife for Data I/O
