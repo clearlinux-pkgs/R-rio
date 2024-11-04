@@ -7,7 +7,7 @@
 #
 Name     : R-rio
 Version  : 1.2.3
-Release  : 62
+Release  : 63
 URL      : https://cran.r-project.org/src/contrib/rio_1.2.3.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/rio_1.2.3.tar.gz
 Summary  : A Swiss-Army Knife for Data I/O
